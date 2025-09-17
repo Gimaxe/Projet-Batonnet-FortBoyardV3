@@ -28,7 +28,6 @@ namespace BATONNETS_DE_FORT_BOYARD
         {
             try
             {
-                listboxPartieTrouve.Items.Clear();
                 using (FortBoyardRomainMathisContext db = new FortBoyardRomainMathisContext())
                 {
                     List<Partie> partie = db.Parties.ToList();

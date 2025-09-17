@@ -23,13 +23,14 @@ namespace BATONNETS_DE_FORT_BOYARD
             try
             {
                 using FortBoyardRomainMathisContext db = new FortBoyardRomainMathisContext();
-                Compte compte = new Compte();
-
-                string GetUserName = db.Comptes.Where(o => o.Pseudo == Txt_UserName.Text).ToString();
-                string GetPassword = db.Comptes.Where(o => o.MotDePasse == HashPassword.Hash(Txt_Password.Text)).ToString();
-                if (GetUserName == Txt_UserName.Text && GetPassword == HashPassword.Hash(Txt_Password.Text))
+                Compte compte = db.Comptes.Where(o => o.Pseudo == Txt_UserName.Text && o.MotDePasse == HashPassword.Hash(Txt_Password.Text)).SingleOrDefault();
+                if (compte != null)
                 {
-                    MessageBox.Show("Test OK");
+                    Close();
+                    Accueil accueil = new Accueil();
+                    accueil.Close();
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.Show();
                 }
                 else
                 {

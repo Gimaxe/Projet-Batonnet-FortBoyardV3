@@ -147,7 +147,6 @@
             Controls.Add(labJoueur1);
             Name = "PagePartie";
             Text = "PageConnexion";
-            Load += this.PagePartie_Load;
             ResumeLayout(false);
             PerformLayout();
         }

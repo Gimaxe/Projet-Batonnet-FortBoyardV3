@@ -38,6 +38,7 @@ namespace BATONNETS_DE_FORT_BOYARD
             catch (Exception ex) 
             {
                 MessageBox.Show("Erreur :" + ex.Message );
+                Close();
             }
 
         }
