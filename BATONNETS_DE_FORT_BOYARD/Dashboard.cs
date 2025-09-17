@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BATONNETS_DE_FORT_BOYARD.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,33 @@ namespace BATONNETS_DE_FORT_BOYARD
     {
         public Dashboard()
         {
+            ChargerLaListe();
             InitializeComponent();
+        }
+
+        private void btnActualiser_Click(object sender, EventArgs e)
+        {
+            ChargerLaListe();
+        }
+
+        private void ChargerLaListe()
+        {
+            try
+            {
+                listboxPartieTrouve.Items.Clear();
+                using (FortBoyardRomainMathisContext db = new FortBoyardRomainMathisContext())
+                {
+                    List<Partie> partie = db.Parties.ToList();
+                    foreach (Partie par in partie)
+                    {
+                        listboxPartieTrouve.Items.Add(par);
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }

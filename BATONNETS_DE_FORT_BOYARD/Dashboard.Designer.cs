@@ -78,6 +78,7 @@
             btnActualiser.TabIndex = 5;
             btnActualiser.Text = "Actualiser";
             btnActualiser.UseVisualStyleBackColor = true;
+            btnActualiser.Click += btnActualiser_Click;
             // 
             // Dashboard
             // 
